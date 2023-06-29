@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone',20);
             $table->date('bdate');
+            $table->mediumText('bio')->nullable();
             $table->timestamps();
         });
     }

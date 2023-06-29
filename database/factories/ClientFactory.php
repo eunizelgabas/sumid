@@ -21,7 +21,8 @@ class ClientFactory extends Factory
             'first_name' => fake()->firstName,
             'address' => fake()->address,
             'phone' => fake()->phoneNumber(),
-            'bdate' => fake()->date('Y-m-d', '2000-01-01')
+            'bdate' => fake()->date('Y-m-d', '2000-01-01'),
+            'bio' => fake()->paragraph(8)
         ];
     }
 }

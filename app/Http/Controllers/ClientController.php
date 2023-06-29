@@ -32,12 +32,14 @@ class ClientController extends Controller
             'bdate' => 'date|required',
         ]);
 
-        $request->update($request->all());
+        $client->update($request->all());
+
+        return redirect('/clients/' . $client->id);
     }
 
     public function destroy(Client $client) {
         $client->delete();
-        return back();
+        return redirect('/clients');
     }
 
     public function create() {

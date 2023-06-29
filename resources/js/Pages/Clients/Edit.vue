@@ -2,29 +2,33 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
+const props = defineProps({
+    client: Object
+})
+
 const form = useForm({
-    last_name: '',
-    first_name: '',
-    address: '',
-    phone: '',
-    bdate: '',
-    bio: '',
+    last_name: props.client.last_name,
+    first_name: props.client.first_name,
+    address: props.client.address,
+    phone: props.client.phone,
+    bdate: props.client.bdate2,
+    bio: props.client.bio,
 })
 
 function submit() {
-    form.post('/clients/')
+    form.patch('/clients/' + props.client.id)
 }
 
 </script>
 
 <template>
-    <Head title="Create Client" />
+    <Head title="Edit Client" />
 
     <AuthenticatedLayout>
         <template #header>
             <div class="flex">
-                <h2 class="flex-1 font-semibold text-xl text-gray-800 leading-tight">Create Client</h2>
-                <Link class="button1 mb-2" as="button" href="/clients">Back</Link>
+                <h2 class="flex-1 font-semibold text-xl text-gray-800 leading-tight">Edit Client</h2>
+                <Link class="button1 mb-2" as="button" :href="'/clients/' + client.id">Back</Link>
             </div>
         </template>
 
@@ -61,7 +65,7 @@ function submit() {
                     <div class="flex-1 flex flex-col">
                         <h4 class="text-xl">Biography</h4>
                         <textarea cols="30" v-model="form.bio" class="flex-1 border border-gray-400 rounded "></textarea>
-                        <button class="button1 mt-2" type="submit">Create Client</button>
+                        <button class="button1 mt-2" type="submit">Save Changes</button>
                     </div>
                 </form>
             </div>

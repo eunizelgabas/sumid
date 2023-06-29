@@ -9,9 +9,19 @@ class Client extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['last_name','first_name','address','phone','bdate'];
+    protected $fillable = ['last_name','first_name','address','phone','bdate','bio'];
 
     protected $casts = [
-        'bdate' =>'datetime'
+        'bdate' =>'date'
     ];
+
+    protected $appends = ['formattedBDate','bdate2'];
+
+    public function getFormattedBDateAttribute() {
+        return $this->bdate->format('F d, Y');
+    }
+
+    public function getBdate2Attribute() {
+        return $this->bdate->format('Y-m-d');
+    }
 }
