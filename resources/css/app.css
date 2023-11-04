@@ -1,23 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.button1 {
-    @apply p-2 border border-gray-400 bg-gray-200 rounded hover:bg-white
-}
-
-.button2 {
-    @apply p-2 border border-red-400 bg-red-600 text-white rounded hover:bg-red-100 hover:text-red-600
-}
-
-.form-field {
-    @apply mb-3
-}
-
-.form-field label {
-    @apply italic ml-1 text-gray-400
-}
-
-.form-field input{
-    @apply w-full border border-gray-300 rounded
-}
